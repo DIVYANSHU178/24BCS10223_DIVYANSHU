@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+class custom_exception extends Exception{
+    public custom_exception(String st){
+        super(st);
+    }
+}
+
+public class CLASS_3 {
+    public static void main(String[] args) throws custom_exception {
+       Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        try {
+            if (n < 18) {
+                throw new custom_exception("Age is below 18");
+            }
+        }
+        catch(custom_exception e){
+            System.out.println(e);
+        }
+
+
+    }
+}
