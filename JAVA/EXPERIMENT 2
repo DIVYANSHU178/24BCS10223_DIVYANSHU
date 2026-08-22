@@ -1,0 +1,131 @@
+//METHOD OVERLOADING
+/*
+import java.util.*;
+class CLASS {
+    void abc(){
+        System.out.println("NON PARAMETERIZED ");
+    }
+    void abc(int x){
+        System.out.println("PARAMETERIZED ");
+    }
+}
+
+public class CLASS_3{
+    public static void main(String[] args){
+        CLASS obj=new CLASS();
+        obj.abc();
+        obj.abc(10);
+    }
+}
+
+*/
+
+//cases which are not overloading
+/*
+
+ class CLASS {
+    int abc(int y){
+        System.out.println("NON PARAMETERIZED ");
+    }
+    void abc(int x){
+        System.out.println("PARAMETERIZED ");
+    }
+}
+
+*/
+
+//METHOD OVERRIDING
+/*
+import java.util.*;
+class CLASS {
+    int z=10;
+    void abc(int x){
+        System.out.println("PARAMETERIZED ");
+    }
+}
+
+class sec extends CLASS{
+    int z=20;
+   // @Override
+    void abc(int y){
+        System.out.println("NON PARAMETERIZED CLASS 2 ");
+
+    }
+}
+
+public class CLASS_3{
+    public static void main(String[] args){
+
+        sec obj2=new sec();
+        obj2.abc(10);
+       System.out.println(((CLASS) obj2).z);   //calling parent class variable using child class object
+    }
+}
+
+*/
+
+/*
+
+class CLASS {
+    void a(int x){
+        System.out.println("PARAMETERIZED ");
+    }
+}
+
+class sec extends CLASS{
+    int a(int y){
+        System.out.println("NON PARAMETERIZED CLASS 2 ");
+        return 0;
+    }
+}
+
+public class CLASS_3{
+    public static void main(String[] args){
+        sec obj2=new sec();
+        obj2.a(10);
+    }
+}
+*/
+
+/*
+
+class CLASS {
+    void a(int x) { // Parameter: 1 int
+        System.out.println("PARAMETERIZED void");
+    }
+}
+
+class sec extends CLASS {
+    // This is valid overloading because the parameter list is different (takes 2 ints)
+    int a(int y, int z) {
+        System.out.println("OVERLOADED int version");
+        return 0;
+    }
+}
+
+public class CLASS_3 {
+    public static void main(String[] args){
+        sec obj2 = new sec();
+        obj2.a(10);       // Calls parent's a(int x)
+        obj2.a(10, 20);   // Calls child's a(int y, int z)
+    }
+}
+
+*/
+
+
+class CLASS_2 {
+    int abc(int y){
+        System.out.println("NON PARAMETERIZED ");
+        return 0;
+    }
+    void abc(int x,int z){
+        System.out.println("PARAMETERIZED ");
+    }
+}
+
+
+//a variable in interface has default nature- public static final
+//  final because since it is interface and has no obj we cant access that interface again
+// an interface can has abstract as well as concrete methods(normal)
+// making cincrete method in interface -> default is used
