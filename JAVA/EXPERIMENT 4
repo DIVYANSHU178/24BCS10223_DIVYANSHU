@@ -1,0 +1,79 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Node{
+    int val;
+    Node head;
+    Node next;
+
+    Node(){
+        this.next=null;
+        this.head=null;
+    }
+    void insert(int value){
+        Node newnode=new Node();
+        newnode.val=value;
+        if(head==null){
+
+            head=newnode;
+        }
+        else{
+            Node temp = head;
+            while(temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newnode;
+        }
+    }
+
+    void doubl(){
+        Node temp=head;
+        while(temp!=null){
+            temp.val=temp.val*2;
+            temp=temp.next;
+        }
+    }w
+
+    void traverse(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.val+" ");
+            temp=temp.next;
+        }
+    }
+}
+
+
+
+
+public class Inventory_Reordering_System {
+    public static void main(String[] args){
+        ArrayList<ArrayList<Integer>> arr=new ArrayList<>();
+        Node  obj=new Node();
+        arr.add(new ArrayList<>(Arrays.asList(10 , 3 , 7)));
+        arr.add(new ArrayList<>(Arrays.asList(1 , 15 , 2)));
+        arr.add(new ArrayList<>(Arrays.asList(4 , 5 , 0)));
+
+        for(ArrayList<Integer> List : arr){
+            for(Integer section:List){
+                if(section<5){
+                    obj.insert(section);
+                }
+            }
+        }
+        obj.doubl();
+
+        System.out.println("Input Inventory (2D ArrayList):");
+        for(ArrayList<Integer> List : arr){
+            for(Integer section:List) {
+                  System.out.print(section+" ");
+              }
+            System.out.println("");
+            }
+
+        System.out.println("Output Inventory:");
+        obj.traverse();
+
+
+    }
+}
