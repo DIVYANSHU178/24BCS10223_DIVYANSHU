@@ -1,0 +1,106 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.fetch-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.fetch-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.fetch-btn:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.status-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+}
+
+.status-msg.error {
+  color: #e53e3e;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.photo-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  background-color: #f7fafc;
+}
+
+.photo-info {
+  padding: 12px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.photo-id {
+  display: inline-block;
+  background: #edf2f7;
+  color: #4a5568;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.photo-title {
+  margin: 0;
+  font-size: 13px;
+  color: #2d3748;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
