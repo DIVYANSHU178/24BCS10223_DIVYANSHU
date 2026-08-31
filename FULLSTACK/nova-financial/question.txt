@@ -1,0 +1,135 @@
+Nova Financial: Investment Analytics Dashboard
+Problem Statement
+You are building an Investment Analytics Dashboard for a portfolio management application. The dashboard fetches portfolio holding records, allows users to search and filter assets, and provides a currency display preference.
+The application should use React hooks to manage state, side effects, and optimized financial calculations.
+
+Task
+Implement the solution inside the provided App.jsx file.
+1. Data Fetching & Side Effects — useEffect
+On component mount, simulate fetching portfolio data using setTimeout.
+After exactly 600ms, populate the assets state with the provided MOCK_ASSETS array.
+Set loading to false.
+Create a second useEffect that updates the browser title to:
+Portfolio - Total: ${formattedTotal}
+The formattedTotal should be the total value calculated from the current filtered assets.
+
+2. Optimized Computations — useMemo
+Implement a single useMemo that returns:
+{
+  filteredAssets,
+  totalValue
+}
+Filter the assets based on:
+searchTerm — asset name matching should be case-insensitive.
+selectedCategory — filter by assetClass.
+If selectedCategory is "All", do not apply the category filter.
+Calculate totalValue by summing:
+quantity × currentPrice
+for all filtered assets.
+Inside the useMemo callback, include:
+window.analyticsMemoCount = (window.analyticsMemoCount || 0) + 1;
+The useMemo dependency array should contain only:
+[assets, searchTerm, selectedCategory]
+Changing currency should not trigger the useMemo.
+
+3. Component Composition
+FilterBar
+Pass the following props to <FilterBar />:
+searchTerm
+setSearchTerm
+selectedCategory
+setSelectedCategory
+currency
+setCurrency
+PortfolioMetrics
+Pass the following props to <PortfolioMetrics />:
+totalValue
+currency
+assetCount
+Where:
+assetCount = filteredAssets.length
+AssetTable
+Pass the following props to <AssetTable />:
+assets = filteredAssets
+currency = currency
+
+4. Provided Mock Data
+Use the following MOCK_ASSETS array:
+const MOCK_ASSETS = [
+  {
+    id: 1,
+    name: "Apple Inc.",
+    symbol: "AAPL",
+    assetClass: "Stocks",
+    quantity: 10,
+    currentPrice: 195.5,
+  },
+  {
+    id: 2,
+    name: "Microsoft Corp.",
+    symbol: "MSFT",
+    assetClass: "Stocks",
+    quantity: 8,
+    currentPrice: 420.25,
+  },
+  {
+    id: 3,
+    name: "Bitcoin",
+    symbol: "BTC",
+    assetClass: "Crypto",
+    quantity: 0.5,
+    currentPrice: 65000,
+  },
+  {
+    id: 4,
+    name: "Ethereum",
+    symbol: "ETH",
+    assetClass: "Crypto",
+    quantity: 2,
+    currentPrice: 3500,
+  },
+  {
+    id: 5,
+    name: "US Treasury Bond",
+    symbol: "UST",
+    assetClass: "Bonds",
+    quantity: 20,
+    currentPrice: 102.5,
+  },
+  {
+    id: 6,
+    name: "Gold ETF",
+    symbol: "GLD",
+    assetClass: "Commodities",
+    quantity: 15,
+    currentPrice: 220.75,
+  },
+];
+
+5. Initial State
+Use the following initial values:
+assets: []
+loading: true
+searchTerm: ""
+selectedCategory: "All"
+currency: "USD"
+Asset Categories
+All
+Stocks
+Crypto
+Bonds
+Commodities
+Currency Options
+USD
+EUR
+INR
+
+Components
+The dashboard should contain:
+App
+├── FilterBar
+├── PortfolioMetrics
+└── AssetTable
+All implementation should be done in App.jsx using the provided project structure and components.
+
+no read this and create d
